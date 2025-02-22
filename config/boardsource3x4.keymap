@@ -14,20 +14,19 @@
     };
 
     kscan0: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
+        compatible = "zmk,kscan-gpio-direct";
         label = "KSCAN";
 
-        diode-direction = "col2row"; // Define la dirección del diodo (si usas diodos)
-        row-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // Fila 1
-        col-gpios = <
-            &gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Columna 1
-            &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Columna 2
-            &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Columna 3
-            &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Columna 4
-            &gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Columna 5
-            &gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Columna 6
-            &gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Columna 7
-            &gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Columna 8
+        input-gpios = <
+            &gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Tecla 1 (P0.17)
+            &gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Tecla 2 (P0.20)
+            &gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Tecla 3 (P0.22)
+            &gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Tecla 4 (P0.24)
+            &gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) // Tecla 5 (P1.00)
+            &gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Tecla 6 (P1.04)
+            &gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Tecla 7 (P0.11)
+            &gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Tecla 8 (P1.11)
+            &gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)  // Tecla 9 (P0.10)
         >;
     };
 
@@ -36,7 +35,15 @@
 
         default_layer {
             bindings = <
-                &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9
+                &kp N1  // Tecla 1
+                &kp N2  // Tecla 2
+                &kp N3  // Tecla 3
+                &kp N4  // Tecla 4
+                &kp N5  // Tecla 5
+                &kp N6  // Tecla 6
+                &kp N7  // Tecla 7
+                &kp N8  // Tecla 8
+                &kp N9  // Tecla 9
             >;
         };
     };
